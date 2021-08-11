@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Página Principal - Academia" />
+    <meta name="keywords" content="HTML, CSS, XML, XHTML, JavaScript" />
+    <meta name="author" content="Diana Salazar Murillo" />
+    <title>Tarea 4</title>
+
+    <meta name="viewport"
+        content="width=device-width,user-scalable=no, initial-scale=1,maximum-scale=1.0, minimum-scale=1.0">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="css/home.css">
+
+
+</head>
+
+
+
+<body>
+
+    <div class="contenedorprimario">
+        <header>
+            <div class="header">
+
+                <div id="titulo">
+                    <h1>
+                        Tarea#4
+                    </h1>
+                </div>
+
+            </div>
+        </header>
+
+        <div id="contenedorprincipal">
+
+            <main id="site_content">
+
+                <article id="content">
+                    <button id="CargarDatos"> Cargar Datos XML </button>
+                    <br>
+                    <br>
+
+                    <center><table id="demo"></table></center>
+                    <br>
+                    <br>
+
+                    <script>
+
+                        document.getElementById("CargarDatos").addEventListener("click", CargarDatos);
+
+                        function CargarDatos() {
+                            var xhr = new XMLHttpRequest();
+                            xhr.onreadystatechange = function () {
+                                if (this.readyState == 4 && this.status == 200) {
+                                    cargarXML(this);
+                                }
+                            };
+                            xhr.open("GET", "datos.xml", true);
+                            xhr.send();
+                        }
+                        function cargarXML(xml) {
+
+                            var docXML = xml.responseXML;
+                            var tabla = "<tr><th>ARTICULO</th><th>COLOR</th><th>TALLA</th><th>PRECIO</th><th>CANTIDAD</th></tr>";
+                            var factura = docXML.getElementsByTagName("CD");
+
+                            for (var i = 0; i < factura.length; i++) {
+                                tabla += "<tr><td>";
+                                tabla += factura[i].getElementsByTagName("ARTICULO")[0].textContent;
+                                tabla += "</td><td>";
+                                tabla += factura[i].getElementsByTagName("COLOR")[0].textContent;
+                                tabla += "</td><td>";
+                                tabla += factura[i].getElementsByTagName("TALLA")[0].textContent;
+                                tabla += "</td><td>";
+                                tabla += factura[i].getElementsByTagName("PRECIO")[0].textContent;
+                                tabla += "</td><td>";
+                                tabla += factura[i].getElementsByTagName("CANTIDAD")[0].textContent;
+                                tabla += "</td></tr>";
+                            }
+                            document.getElementById("demo").innerHTML = tabla;
+                        }
+
+                    </script>
+
+
+
+                </article>
+
+            </main>
+        </div>
+
+
+        <div id="foot">
+            <footer>
+
+                <br>
+                <h2>Tarea #4</h2>
+                <p>
+                    <a href="#">Inicio</a>
+                    <br>
+                    Copyright &copy; 2021 | Diana Salazar Murillo
+                </p>
+
+            </footer>
+        </div>
+    </div>
+
+</body>
+
+</html>

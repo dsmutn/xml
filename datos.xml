@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding= "UTF-8" ?>
+<CATALOGO>
+    <CD>
+        <ARTICULO>Blusa</ARTICULO>
+        <COLOR>Blanco</COLOR>
+        <TALLA>XL</TALLA>
+        <PRECIO>8000</PRECIO>
+        <CANTIDAD>9</CANTIDAD>
+    </CD>
+    <CD>
+        <ARTICULO>Pantalón</ARTICULO>
+        <COLOR>Negro</COLOR>
+        <TALLA>3</TALLA>
+        <PRECIO>13000</PRECIO>
+        <CANTIDAD>10</CANTIDAD>
+    </CD>
+</CATALOGO>
+
